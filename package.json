@@ -1,0 +1,16 @@
+{
+  "name": "aoc-widget-component",
+  "version": "1.0.0",
+  "description": "A widget that displays your Advent of Code solutions for different years and languages",
+  "main": "aoc-widget.js",
+  "module": "aoc-widget.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "lit": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.15",
+    "typescript": "^4.9.4"
+  }
+}
