@@ -1,5 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
+import "./aoc-widget-day";
 
 type AocDataLanguage = {
   [day: string]: {
@@ -19,15 +20,31 @@ export class AocWidget extends LitElement {
   @property({ type: String })
   language = "";
 
-  async connectedCallback(): Promise<void> {
-    super.connectedCallback();
-  }
+  static styles = css`
+    section {
+      width: 130px;
+      font-family: JetBrains Mono, monospace;
+      padding: 15px 35px;
+      box-sizing: border-box;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h4 {
+      display: block;
+    }
+  `;
 
   render() {
-    const days = Object.keys(this.data).sort();
-    return html`<h1>${this.language}</h1>
+    return html`<section>
+      <h4>${this.language}</h4>
       ${adventDays.map((day) => {
-        return html`${day}`;
-      })}`;
+        return html`<aoc-widget-day
+          data=${JSON.stringify(this.data[day])}
+          day=${day}
+        ></aoc-widget-day>`;
+      })}
+    </section>`;
   }
 }
